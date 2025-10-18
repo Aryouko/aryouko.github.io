@@ -1,10 +1,10 @@
-﻿* {  /* Reset CSS */
+﻿* { 
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body { /* Pour un défilement fluide */
+html, body {
   height: 100%;
   margin: 0;
   scroll-snap-type: y mandatory;
@@ -279,7 +279,6 @@ h2 .accent::after {
   z-index: -1;
 }
 
-/* Responsive */
 @media (max-width: 1000px) {
   .menu-toggle {
     display: flex;
