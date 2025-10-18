@@ -4,7 +4,11 @@
   box-sizing: border-box;
 }
 
-html { /* Pour un défilement fluide */
+html, body { /* Pour un défilement fluide */
+  height: 100%;
+  margin: 0;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
   scroll-behavior: smooth;
 }
 
@@ -66,7 +70,6 @@ header.scrolled {
   transition: all 0.3s;
 }
 
-/* ---- NAVIGATION ---- */
 nav {
   margin: 0 auto;
   padding: 1.5rem 2rem;
@@ -96,7 +99,6 @@ nav {
   transition: all 0.3s;
 }
 
-/* Make vertical navbar link underline match text width */
 .navbar-vertical a {
   display: inline-block;
   position: relative;
@@ -105,6 +107,7 @@ nav {
   text-decoration: none;
   font-weight: 700;
 }
+
 .navbar-vertical a::after {
   content: "";
   position: absolute;
@@ -116,11 +119,11 @@ nav {
   transition: width 0.25s ease;
   border-radius: 2px;
 }
+
 .navbar-vertical a:hover::after {
   width: 100%;
 }
 
-/* Liens du menu */
 header a {
   color: #aaaaaa;
   text-decoration: none;
@@ -142,7 +145,6 @@ header a::after {
   border-radius: 1px;
 }
 
-/* Effet hover */
 header a:hover {
   color: #ffffff;
 }
@@ -157,16 +159,48 @@ header a:hover::after {
   100% { width: 100%; } /* revient à la taille finale */
 }
 
-.accueil-devanture {
+section {
   height: 100vh;
-  padding-top: 50px;
+  padding-top: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: left;
+  scroll-snap-align: start;
   gap: 5rem;
+}
+
+.competences {
+  padding-top: 50px;
   position: relative;
-  overflow: hidden;;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.competences img {
+  margin: 1.5rem;
+  width: 150px;    
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+
+.accueil {
+  padding-top: 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+.accueil img {
+  margin-left: 5%;
+  aspect-ratio: 1 / 1;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 500;
 }
 
 .geometric-bg-1 {
@@ -219,7 +253,7 @@ header a:hover::after {
   }
 }
 
-.texte-devanture {
+h2 {
   font-size: 3rem;
   font-weight: 900;
   position: relative;
@@ -227,13 +261,13 @@ header a:hover::after {
   z-index: 500;
 }
 
-.texte-devanture .accent {
+h2 .accent {
   color: #ff6f3c;
   display: inline-block;
   position: relative;
 }
 
-.texte-devanture .accent::after {
+h2 .accent::after {
   content: '';
   position: absolute;
   bottom: 5px;
@@ -243,19 +277,6 @@ header a:hover::after {
   background: linear-gradient(90deg, #ff6f3c 0%, #ff9800 50%, transparent 100%);
   opacity: 0.3;
   z-index: -1;
-}
-
-.image-devanture {
-  margin-left: 5%;
-  aspect-ratio: 1 / 1;
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  background-image: url('images/1759721874650.jpg');
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  z-index: 500;
 }
 
 /* Responsive */
@@ -308,7 +329,7 @@ header a:hover::after {
     bottom: 3px;
   }
 
-  .accueil-devanture {
+  .accueil {
     flex-direction: column;
     text-align: center;
     gap: 2rem;
